@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import ScoreRing from '@/components/ScoreRing';
 import InsightCard from '@/components/InsightCard';
 import { ComputedScores, Tier, TIER_CONTENT, PERFORMANCE_COPY, getInsightText, getRingColor } from '@/lib/scoring';
@@ -82,7 +83,9 @@ export default function ResultsPage() {
                 </div>
 
                 {/* Logo */}
-                <p className="text-xs font-semibold tracking-[0.25em] text-[#888] uppercase mb-8">Hijack Studio</p>
+                <div className="flex justify-center mb-8">
+                    <Image src="/HijackStudioLogo.png" alt="Hijack Studio" width={120} height={34} className="object-contain" priority />
+                </div>
 
                 {/* Performance badge */}
                 <motion.div

@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import Image from 'next/image';
 import ProgressBar from '@/components/ProgressBar';
 import TypewriterText from '@/components/TypewriterText';
 import { initSession } from '@/lib/state';
@@ -42,7 +43,7 @@ export default function ContactPage() {
                     <Link href="/" className="text-[#888] hover:text-[#1A1A1A] transition-colors" aria-label="Back">
                         ← Back
                     </Link>
-                    <span className="text-xs font-semibold tracking-[0.2em] text-[#888] uppercase">Hijack Studio</span>
+                    <Image src="/HijackStudioLogo.png" alt="Hijack Studio" width={100} height={28} className="object-contain" priority />
                     <div className="w-12" />
                 </div>
 

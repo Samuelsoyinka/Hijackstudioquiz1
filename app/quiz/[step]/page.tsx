@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { useRouter, useParams } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
+import Image from 'next/image';
 import ProgressBar from '@/components/ProgressBar';
 import TypewriterText from '@/components/TypewriterText';
 import AnswerButton from '@/components/AnswerButton';
@@ -98,7 +99,7 @@ export default function QuizPage() {
                     <Link href={backHref} className="text-[#888] hover:text-[#1A1A1A] transition-colors text-sm">
                         ← Back
                     </Link>
-                    <span className="text-xs font-semibold tracking-[0.2em] text-[#888] uppercase">Hijack Studio</span>
+                    <Image src="/HijackStudioLogo.png" alt="Hijack Studio" width={100} height={28} className="object-contain" priority />
                     <span className="text-xs text-[#AAA] font-medium">{step} / {TOTAL_STEPS}</span>
                 </div>
 
