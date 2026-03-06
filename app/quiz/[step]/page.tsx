@@ -8,7 +8,7 @@ import ProgressBar from '@/components/ProgressBar';
 import TypewriterText from '@/components/TypewriterText';
 import AnswerButton from '@/components/AnswerButton';
 import { QUESTIONS, TOTAL_STEPS, getQuestion } from '@/lib/questions';
-import { computeScores, computeTier } from '@/lib/scoring';
+import { computeScores, computeTier, getInsightText } from '@/lib/scoring';
 import { loadSession, saveAnswer, getAnswer } from '@/lib/state';
 import { submitQuiz } from '@/lib/supabase';
 
@@ -78,6 +78,10 @@ export default function QuizPage() {
                     answers: session.answers,
                     scores,
                     tier,
+                    performance_label: scores.performance_label,
+                    acquisition_insight: getInsightText('acquisition', scores.acquisition_percent),
+                    conversion_insight: getInsightText('conversion', scores.conversion_percent),
+                    retention_insight: getInsightText('retention', scores.retention_percent),
                 });
             }
             router.push('/results');

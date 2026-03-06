@@ -32,6 +32,10 @@ export interface SubmissionPayload {
     answers: AnswerMap;
     scores: ComputedScores;
     tier: string;
+    performance_label: string;
+    acquisition_insight: string;
+    conversion_insight: string;
+    retention_insight: string;
 }
 
 /**
@@ -45,7 +49,8 @@ export async function submitQuiz(payload: SubmissionPayload): Promise<void> {
         return;
     }
 
-    const { contact, answers, scores, tier, submission_id } = payload;
+    const { contact, answers, scores, tier, submission_id, performance_label,
+        acquisition_insight, conversion_insight, retention_insight } = payload;
 
     const row = {
         id: submission_id,
@@ -64,7 +69,7 @@ export async function submitQuiz(payload: SubmissionPayload): Promise<void> {
         q8: answers.q8_retention_post_purchase_system,
         q9: answers.q9_retention_tracking,
         q10: answers.q10_retention_communication,
-        // Computed scores
+        // Computed scores + performance label
         acquisition_score: scores.acquisition_score,
         conversion_score: scores.conversion_score,
         retention_score: scores.retention_score,
@@ -74,6 +79,11 @@ export async function submitQuiz(payload: SubmissionPayload): Promise<void> {
         conversion_percent: scores.conversion_percent,
         retention_percent: scores.retention_percent,
         focus_area: scores.focus_area,
+        performance_label,
+        // Dynamic insight texts (for email / CRM context)
+        acquisition_insight,
+        conversion_insight,
+        retention_insight,
         // Qualification answers
         q11_revenue_range: answers.q11_revenue_range,
         q12_90_day_goal: answers.q12_90_day_goal,
