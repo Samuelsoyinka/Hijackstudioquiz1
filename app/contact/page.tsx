@@ -107,11 +107,11 @@ export default function ContactPage() {
                             <label htmlFor="whatsapp" className="block text-[13px] font-medium text-[#444] mb-1.5">
                                 WhatsApp Number <span className="text-[#AAA]">(optional)</span>
                             </label>
-                            <div className="flex gap-2">
+                            <div className="flex w-full rounded-xl border border-[#D5D0C5] bg-white transition-all duration-200 focus-within:ring-2 focus-within:ring-[#1A1A1A]/20 focus-within:border-[#1A1A1A] overflow-hidden">
                                 <select
                                     value={countryCode}
                                     onChange={(e) => setCountryCode(e.target.value)}
-                                    className="w-[100px] px-3 py-3.5 rounded-xl border border-[#D5D0C5] bg-white text-[#1A1A1A] text-[15px] outline-none transition-all duration-200 focus:ring-2 focus:ring-[#1A1A1A]/20 focus:border-[#1A1A1A] appearance-none cursor-pointer"
+                                    className="w-[100px] px-4 py-3.5 bg-transparent text-[#1A1A1A] text-[15px] outline-none appearance-none cursor-pointer border-r border-[#D5D0C5]"
                                 >
                                     <option value="+234">🇳🇬 +234</option>
                                     <option value="+1">🇺🇸 +1</option>
@@ -128,7 +128,7 @@ export default function ContactPage() {
                                     value={whatsapp}
                                     onChange={(e) => setWhatsapp(e.target.value)}
                                     placeholder="800 000 0000"
-                                    className="flex-1 px-4 py-3.5 rounded-xl border border-[#D5D0C5] bg-white text-[#1A1A1A] text-[15px] outline-none transition-all duration-200 focus:ring-2 focus:ring-[#1A1A1A]/20 focus:border-[#1A1A1A]"
+                                    className="flex-1 px-4 py-3.5 bg-transparent text-[#1A1A1A] text-[15px] outline-none"
                                 />
                             </div>
                         </div>
