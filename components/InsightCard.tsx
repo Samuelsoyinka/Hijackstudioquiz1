@@ -15,19 +15,22 @@ export default function InsightCard({ label, icon, text, color, index }: Insight
             initial={{ opacity: 0, x: -16 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: index * 0.15 + 0.3, duration: 0.4 }}
-            className="flex items-start gap-4 py-4 border-b border-[#EDE8DC] last:border-0"
+            className="flex items-start gap-4 py-5 border-b border-[#EDE8DC] last:border-0"
         >
             <div
-                className="w-9 h-9 rounded-full flex items-center justify-center text-lg flex-shrink-0 mt-0.5"
-                style={{ backgroundColor: color + '22' }}
+                className="w-12 h-12 rounded-xl flex items-center justify-center text-xl flex-shrink-0 mt-0.5"
+                style={{ backgroundColor: color + '15', color: color }}
             >
                 {icon}
             </div>
-            <div>
-                <p className="text-xs font-semibold uppercase tracking-widest mb-1" style={{ color }}>
+            <div className="flex-1 mt-0.5">
+                <h4 className="text-[16px] font-bold text-[#1A1A1A] mb-1">
                     {label}
-                </p>
-                <p className="text-[#3A3A3A] text-[15px] leading-relaxed">{text}</p>
+                </h4>
+                <p className="text-[#666] text-[14px] leading-relaxed">{text}</p>
+            </div>
+            <div className="hidden sm:flex mt-1">
+                {/* Optional high/moderate text placeholder for future expansion to match reference fully */}
             </div>
         </motion.div>
     );

@@ -71,8 +71,13 @@ export default function ResultsPage() {
     return (
         <main className="min-h-screen bg-[#F5F1E8] overflow-x-hidden pb-20">
 
+            {/* Header Logo */}
+            <div className="w-full px-6 pt-8 pb-4">
+                <Image src="/HijackStudioLogo.png" alt="Hijack Studio" width={140} height={38} className="object-contain" priority />
+            </div>
+
             {/* ── SECTION 1 — BIG REVEAL ───────────────────────── */}
-            <section className="relative pt-16 pb-12 px-6 text-center overflow-hidden">
+            <section className="relative pt-6 pb-12 px-6 text-center overflow-hidden">
                 {/* Background gradient */}
                 <div className="pointer-events-none absolute inset-0">
                     <div className="absolute inset-0 bg-gradient-to-b from-[#EDE8DC] to-transparent" />
@@ -82,20 +87,15 @@ export default function ResultsPage() {
                     />
                 </div>
 
-                {/* Logo */}
-                <div className="flex justify-center mb-8">
-                    <Image src="/HijackStudioLogo.png" alt="Hijack Studio" width={120} height={34} className="object-contain" priority />
-                </div>
-
                 {/* Performance badge */}
                 <motion.div
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.5 }}
-                    className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-white text-sm font-semibold mb-10"
-                    style={{ backgroundColor: badgeColor }}
+                    className="inline-flex items-center justify-center gap-2 px-5 py-2 rounded-full text-sm font-semibold mb-10 border"
+                    style={{ backgroundColor: badgeColor + '15', color: badgeColor, borderColor: badgeColor + '30' }}
                 >
-                    <span>●</span> {performance_label}
+                    {performance_label}
                 </motion.div>
 
                 {/* Animated Score Ring */}
@@ -108,7 +108,7 @@ export default function ResultsPage() {
                     initial={{ opacity: 0, y: 16 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.5, duration: 0.5 }}
-                    className="font-serif text-3xl md:text-4xl font-bold text-[#1A1A1A] mb-3"
+                    className="font-sans text-4xl md:text-5xl font-bold tracking-tight text-[#1A1A1A] mb-3"
                 >
                     {name ? `${copy.title} ${name}` : copy.title}
                 </motion.h1>
@@ -116,7 +116,7 @@ export default function ResultsPage() {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.7, duration: 0.5 }}
-                    className="text-[#555] text-[16px] leading-relaxed max-w-xl mx-auto"
+                    className="text-[#6B7280] text-[16px] leading-relaxed max-w-xl mx-auto"
                 >
                     {copy.subtitle}
                 </motion.p>
@@ -130,11 +130,11 @@ export default function ResultsPage() {
                     transition={{ delay: 0.8, duration: 0.5 }}
                     className="bg-white rounded-2xl p-7 shadow-sm border border-[#EDE8DC]"
                 >
-                    <h2 className="font-serif text-xl font-bold text-[#1A1A1A] mb-5">Your Growth Insights</h2>
+                    <h2 className="font-sans text-xl font-bold text-[#1A1A1A] mb-6">Insights Summary</h2>
                     {insights.map((ins, i) => (
                         <InsightCard
                             key={ins.key}
-                            label={`${ins.label} — ${ins.pct}%`}
+                            label={ins.label}
                             icon={ins.icon}
                             color={ins.color}
                             text={getInsightText(ins.key, ins.pct)}
@@ -171,8 +171,7 @@ export default function ResultsPage() {
                     transition={{ delay: 1.3, duration: 0.5 }}
                     className="bg-white rounded-2xl p-8 shadow-sm border border-[#EDE8DC] text-center"
                 >
-                    <p className="text-xs font-semibold tracking-[0.2em] uppercase text-[#888] mb-3">Your Recommended Next Step</p>
-                    <h3 className="font-serif text-2xl font-bold text-[#1A1A1A] mb-6">Ready to act on this?</h3>
+                    <p className="text-xs font-semibold tracking-[0.2em] uppercase text-[#888] mb-6">Your Recommended Next Step</p>
                     <button
                         id="results-cta"
                         className="w-full bg-[#1A1A1A] text-white py-4 rounded-xl text-[15px] font-semibold hover:bg-[#333] transition-colors"
