@@ -79,11 +79,11 @@ export default function ResultsPage() {
             {/* ── SECTION 1 — BIG REVEAL ───────────────────────── */}
             <section className="relative pt-6 pb-12 px-6 text-center overflow-hidden">
                 {/* Background gradient */}
-                <div className="pointer-events-none absolute inset-0">
-                    <div className="absolute inset-0 bg-gradient-to-b from-[#EDE8DC] to-transparent opacity-80" />
+                <div className="pointer-events-none absolute inset-0 z-0">
+                    <div className="absolute inset-0 bg-gradient-to-b from-[#E6E1D6] to-transparent opacity-100" />
                     <div
-                        className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[350px] rounded-full blur-3xl opacity-60"
-                        style={{ background: `radial-gradient(circle, ${ringColor}33, transparent 70%)` }}
+                        className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[350px] rounded-full blur-3xl opacity-80"
+                        style={{ background: `radial-gradient(circle, ${ringColor}44, transparent 70%)` }}
                     />
                 </div>
 
@@ -92,8 +92,8 @@ export default function ResultsPage() {
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.5 }}
-                    className="inline-flex items-center justify-center gap-2 px-5 py-2 rounded-full text-sm font-sans font-semibold mb-10 border"
-                    style={{ backgroundColor: badgeColor + '15', color: badgeColor, borderColor: badgeColor + '30' }}
+                    className="relative z-10 inline-flex items-center justify-center gap-2 px-5 py-2 rounded-full text-sm font-sans font-semibold mb-10 text-white"
+                    style={{ backgroundColor: badgeColor }}
                 >
                     {performance_label}
                 </motion.div>
@@ -108,7 +108,7 @@ export default function ResultsPage() {
                     initial={{ opacity: 0, y: 16 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.5, duration: 0.5 }}
-                    className="font-sans text-4xl md:text-5xl font-bold tracking-tight text-[#1A1A1A] mb-3"
+                    className="relative z-10 font-sans text-4xl md:text-5xl font-bold tracking-tight text-[#1A1A1A] mb-3"
                 >
                     {name ? `${copy.title} ${name}` : copy.title}
                 </motion.h1>
@@ -116,14 +116,14 @@ export default function ResultsPage() {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.7, duration: 0.5 }}
-                    className="text-[#6B7280] text-[16px] leading-relaxed max-w-xl mx-auto"
+                    className="relative z-10 text-[#6B7280] text-[16px] leading-relaxed max-w-2xl mx-auto"
                 >
                     {copy.subtitle}
                 </motion.p>
             </section>
 
             {/* ── SECTION 2 — INSIGHTS CARD ────────────────────── */}
-            <section className="px-6 max-w-xl mx-auto mb-6">
+            <section className="px-6 w-full max-w-3xl mx-auto mb-6">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -145,7 +145,7 @@ export default function ResultsPage() {
             </section>
 
             {/* ── SECTION 3 — FOCUS AREA ───────────────────────── */}
-            <section className="px-6 max-w-xl mx-auto mb-6">
+            <section className="px-6 w-full max-w-3xl mx-auto mb-6">
                 <motion.div
                     initial={{ opacity: 0, x: -12 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -163,7 +163,7 @@ export default function ResultsPage() {
             </section>
 
             {/* ── SECTION 4 — NEXT STEP ────────────────────────── */}
-            <section className="px-6 max-w-xl mx-auto mb-6">
+            <section className="px-6 w-full max-w-3xl mx-auto mb-6">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}

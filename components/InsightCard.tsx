@@ -23,11 +23,11 @@ export default function InsightCard({ label, icon, text, color, index }: Insight
             >
                 {icon}
             </div>
-            <div className="flex-1 mt-0.5">
-                <h4 className="text-[16px] font-bold text-[#1A1A1A] mb-1">
+            <div className="flex-1 mt-0.5 text-left">
+                <p className="text-[15px] font-medium text-[#555] leading-relaxed">
                     {label}
-                </h4>
-                <p className="text-[#666] text-[14px] leading-relaxed">{text}</p>
+                </p>
+                {text && <p className="text-[#666] text-[14px] leading-relaxed mt-1">{text}</p>}
             </div>
             <div className="hidden sm:flex mt-1">
                 {/* Optional high/moderate text placeholder for future expansion to match reference fully */}
