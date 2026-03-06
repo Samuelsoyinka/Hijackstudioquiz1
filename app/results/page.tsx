@@ -80,9 +80,9 @@ export default function ResultsPage() {
             <section className="relative pt-6 pb-12 px-6 text-center overflow-hidden">
                 {/* Background gradient */}
                 <div className="pointer-events-none absolute inset-0">
-                    <div className="absolute inset-0 bg-gradient-to-b from-[#EDE8DC] to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-b from-[#EDE8DC] to-transparent opacity-80" />
                     <div
-                        className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[300px] rounded-full blur-3xl opacity-40"
+                        className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[350px] rounded-full blur-3xl opacity-60"
                         style={{ background: `radial-gradient(circle, ${ringColor}33, transparent 70%)` }}
                     />
                 </div>
@@ -92,7 +92,7 @@ export default function ResultsPage() {
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.5 }}
-                    className="inline-flex items-center justify-center gap-2 px-5 py-2 rounded-full text-sm font-semibold mb-10 border"
+                    className="inline-flex items-center justify-center gap-2 px-5 py-2 rounded-full text-sm font-sans font-semibold mb-10 border"
                     style={{ backgroundColor: badgeColor + '15', color: badgeColor, borderColor: badgeColor + '30' }}
                 >
                     {performance_label}
@@ -134,10 +134,10 @@ export default function ResultsPage() {
                     {insights.map((ins, i) => (
                         <InsightCard
                             key={ins.key}
-                            label={ins.label}
+                            label={getInsightText(ins.key, ins.pct)}
                             icon={ins.icon}
                             color={ins.color}
-                            text={getInsightText(ins.key, ins.pct)}
+                            text=""
                             index={i}
                         />
                     ))}
@@ -150,13 +150,12 @@ export default function ResultsPage() {
                     initial={{ opacity: 0, x: -12 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 1.1, duration: 0.5 }}
-                    className="rounded-2xl p-7 border"
-                    style={{ backgroundColor: focusColor + '10', borderColor: focusColor + '30' }}
+                    className="rounded-2xl p-7 border bg-[#10B981]/10 border-[#10B981]/20"
                 >
-                    <p className="text-xs font-semibold tracking-[0.2em] uppercase mb-2" style={{ color: focusColor }}>
+                    <p className="text-xs font-sans font-bold tracking-[0.2em] uppercase mb-2 text-[#10B981]">
                         Primary Focus Area
                     </p>
-                    <h3 className="font-serif text-2xl font-bold text-[#1A1A1A] mb-2">{focus_area}</h3>
+                    <h3 className="font-sans text-2xl font-bold text-[#1A1A1A] mb-2">{focus_area}</h3>
                     <p className="text-[#555] text-[14px] leading-relaxed">
                         Improving your {focus_area.toLowerCase()} process will likely create the fastest growth for your business.
                     </p>
@@ -169,17 +168,18 @@ export default function ResultsPage() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 1.3, duration: 0.5 }}
-                    className="bg-white rounded-2xl p-8 shadow-sm border border-[#EDE8DC] text-center"
+                    className="pt-8 text-center"
                 >
-                    <p className="text-xs font-semibold tracking-[0.2em] uppercase text-[#888] mb-6">Your Recommended Next Step</p>
+                    <p className="text-xs font-sans font-semibold tracking-[0.2em] uppercase text-[#888] mb-4">Your Recommended Next Step</p>
+                    <div className="w-12 h-[2px] bg-[#EDE8DC] mx-auto mb-6" />
                     <button
                         id="results-cta"
-                        className="w-full bg-[#1A1A1A] text-white py-4 rounded-xl text-[15px] font-semibold hover:bg-[#333] transition-colors"
+                        className="w-full bg-[#1A1A1A] text-white py-4 rounded-xl text-[15px] font-sans font-semibold hover:bg-[#333] transition-colors"
                         onClick={() => window.open('https://instagram.com/HijackStudio', '_blank')}
                     >
                         {cta.cta}
                     </button>
-                    <p className="mt-3 text-xs text-[#AAA]">{cta.subtext}</p>
+                    <p className="mt-3 text-xs font-sans text-[#AAA]">{cta.subtext}</p>
                 </motion.div>
             </section>
 

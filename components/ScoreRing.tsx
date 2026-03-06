@@ -40,7 +40,7 @@ export default function ScoreRing({ percent, size = 200 }: ScoreRingProps) {
                 {/* Center percentage */}
                 <div className="absolute inset-0 flex flex-col items-center justify-center">
                     <motion.span
-                        className="text-4xl font-bold text-[#1A1A1A] font-serif"
+                        className="text-4xl font-bold text-[#1A1A1A] font-sans"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ delay: 0.5, duration: 0.6 }}
@@ -49,7 +49,6 @@ export default function ScoreRing({ percent, size = 200 }: ScoreRingProps) {
                     </motion.span>
                 </div>
             </div>
-            <p className="text-sm text-[#666] tracking-wide uppercase font-medium">Business Health Score</p>
         </div>
     );
 }
