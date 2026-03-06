@@ -12,6 +12,7 @@ export default function ContactPage() {
     const router = useRouter();
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
+    const [countryCode, setCountryCode] = useState('+234');
     const [whatsapp, setWhatsapp] = useState('');
     const [errors, setErrors] = useState<Record<string, string>>({});
     const [loading, setLoading] = useState(false);
@@ -29,7 +30,8 @@ export default function ContactPage() {
         const errs = validate();
         if (Object.keys(errs).length) { setErrors(errs); return; }
         setLoading(true);
-        initSession({ name: name.trim(), email: email.trim(), whatsapp: whatsapp.trim() || undefined });
+        const fullWhatsapp = whatsapp.trim() ? `${countryCode} ${whatsapp.trim()}` : undefined;
+        initSession({ name: name.trim(), email: email.trim(), whatsapp: fullWhatsapp });
         router.push('/quiz/1');
     }
 
@@ -105,14 +107,30 @@ export default function ContactPage() {
                             <label htmlFor="whatsapp" className="block text-[13px] font-medium text-[#444] mb-1.5">
                                 WhatsApp Number <span className="text-[#AAA]">(optional)</span>
                             </label>
-                            <input
-                                id="whatsapp"
-                                type="tel"
-                                value={whatsapp}
-                                onChange={(e) => setWhatsapp(e.target.value)}
-                                placeholder="+234 800 000 0000"
-                                className="w-full px-4 py-3.5 rounded-xl border border-[#D5D0C5] bg-white text-[#1A1A1A] text-[15px] outline-none transition-all duration-200 focus:ring-2 focus:ring-[#1A1A1A]/20 focus:border-[#1A1A1A]"
-                            />
+                            <div className="flex gap-2">
+                                <select
+                                    value={countryCode}
+                                    onChange={(e) => setCountryCode(e.target.value)}
+                                    className="w-[100px] px-3 py-3.5 rounded-xl border border-[#D5D0C5] bg-white text-[#1A1A1A] text-[15px] outline-none transition-all duration-200 focus:ring-2 focus:ring-[#1A1A1A]/20 focus:border-[#1A1A1A] appearance-none cursor-pointer"
+                                >
+                                    <option value="+234">🇳🇬 +234</option>
+                                    <option value="+1">🇺🇸 +1</option>
+                                    <option value="+44">🇬🇧 +44</option>
+                                    <option value="+27">🇿🇦 +27</option>
+                                    <option value="+254">🇰🇪 +254</option>
+                                    <option value="+233">🇬🇭 +233</option>
+                                    <option value="+91">🇮🇳 +91</option>
+                                    <option value="+61">🇦🇺 +61</option>
+                                </select>
+                                <input
+                                    id="whatsapp"
+                                    type="tel"
+                                    value={whatsapp}
+                                    onChange={(e) => setWhatsapp(e.target.value)}
+                                    placeholder="800 000 0000"
+                                    className="flex-1 px-4 py-3.5 rounded-xl border border-[#D5D0C5] bg-white text-[#1A1A1A] text-[15px] outline-none transition-all duration-200 focus:ring-2 focus:ring-[#1A1A1A]/20 focus:border-[#1A1A1A]"
+                                />
+                            </div>
                         </div>
 
                         <button
