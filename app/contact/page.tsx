@@ -7,17 +7,7 @@ import Image from 'next/image';
 import ProgressBar from '@/components/ProgressBar';
 import TypewriterText from '@/components/TypewriterText';
 import { initSession } from '@/lib/state';
-
-const COUNTRIES = [
-    { code: 'NG', dial: '+234', name: 'Nigeria', flag: 'https://flagcdn.com/w20/ng.png' },
-    { code: 'US', dial: '+1', name: 'United States', flag: 'https://flagcdn.com/w20/us.png' },
-    { code: 'GB', dial: '+44', name: 'United Kingdom', flag: 'https://flagcdn.com/w20/gb.png' },
-    { code: 'ZA', dial: '+27', name: 'South Africa', flag: 'https://flagcdn.com/w20/za.png' },
-    { code: 'KE', dial: '+254', name: 'Kenya', flag: 'https://flagcdn.com/w20/ke.png' },
-    { code: 'GH', dial: '+233', name: 'Ghana', flag: 'https://flagcdn.com/w20/gh.png' },
-    { code: 'IN', dial: '+91', name: 'India', flag: 'https://flagcdn.com/w20/in.png' },
-    { code: 'AU', dial: '+61', name: 'Australia', flag: 'https://flagcdn.com/w20/au.png' },
-];
+import { COUNTRIES, Country } from '@/lib/countries';
 
 export default function ContactPage() {
     const router = useRouter();
