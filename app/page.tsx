@@ -13,10 +13,9 @@ export default function LandingPage() {
     <div className="relative flex min-h-screen flex-col overflow-x-hidden bg-[#F5F1E8] text-[#1a1a1a]">
       {/* Header */}
       <header className="flex items-center justify-between px-6 md:px-20 py-6 border-b border-[#1a1a1a]/10">
-        <div className="flex items-center gap-3">
-          <Image src="/HijackStudioLogo.png" alt="Hijack Studio Logo" width={40} height={40} className="rounded-lg object-contain" />
-          <h2 className="text-xl font-bold tracking-tight">Hijack Studio</h2>
-        </div>
+        <Link href="/" className="flex items-center">
+          <Image src="/HijackStudioLogo.png" alt="Hijack Studio Logo" width={160} height={44} className="object-contain" priority />
+        </Link>
         <nav className="hidden md:flex items-center gap-10">
           <a className="text-sm font-medium hover:text-[#1a1a1a]/70 transition-colors" href="#how-it-works">How It Works</a>
           <a className="text-sm font-medium hover:text-[#1a1a1a]/70 transition-colors" href="#meet-the-expert">Meet The Expert</a>
@@ -64,12 +63,12 @@ export default function LandingPage() {
       {/* Value Proposition */}
       <section id="how-it-works" className="bg-[#1a1a1a]/5 py-24 px-6 border-y border-[#1a1a1a]/5">
         <div className="max-w-6xl mx-auto">
-          <motion.h2
+          <motion.p
             initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.5 }}
             className="text-center text-sm md:text-lg font-bold font-sans uppercase tracking-[0.2em] mb-12 text-[#1a1a1a]"
           >
             Answer these 15 questions so we can measure &amp; improve your:
-          </motion.h2>
+          </motion.p>
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
